@@ -1,0 +1,32 @@
+{
+  "name": "kiss-kit",
+  "version": "1.0.0",
+  "description": "Keep It Simple Stupid Kit",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/satyakresna/kiss-kit"
+  },
+  "keywords": [
+    "kiss",
+    "starter",
+    "kit"
+  ],
+  "author": "Satya Kresna <satyakresna6295@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-purgecss": "^1.2.0",
+    "gulp-rename": "^1.4.0"
+  },
+  "dependencies": {
+    "cssnano": "^4.1.10",
+    "tailwindcss": "^1.1.3"
+  }
+}
