@@ -67,8 +67,7 @@ gulp.task('assets', async function () {
 
 gulp.task('watch', async function () {
   gulp.watch('./src/css/style.css', gulp.series('css'));
-  gulp.watch(['./src/**/*.html'], gulp.series('css'));
-  gulp.watch(['./src/**/*.html'], gulp.series('html')).on('change', browserSync.reload);
+  gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
 });
 
 gulp.task('browserSync', function () {
