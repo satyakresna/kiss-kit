@@ -51,7 +51,7 @@ gulp.task('css', async function() {
 
 gulp.task('html', async function () {
   gulp.src(['./src/**/.*html', './src/*.html'])
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -59,7 +59,7 @@ gulp.task('html', async function () {
 
 gulp.task('assets', async function () {
   gulp.src('./src/assets/**')
-    .pipe(gulp.dest('dist/assets/'))
+    .pipe(gulp.dest('./dist/assets/'))
     .pipe(browserSync.reload({
       stream: true
     }))
