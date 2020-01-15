@@ -65,6 +65,22 @@ gulp.task('assets', async function () {
     }))
 });
 
+gulp.task('js-plugins', async function () {
+  gulp.src('./src/js/plugins/**')
+    .pipe(gulp.dest('./dist/js/plugins/'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
+gulp.task('js', async function () {
+  gulp.src('./src/js/app.js')
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
 gulp.task('watch', async function () {
   gulp.watch('./src/css/style.css', gulp.series('css'));
   gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
@@ -77,7 +93,7 @@ gulp.task('browserSync', function () {
 });
 
 // For production
-gulp.task('build', gulp.series('html', 'css', 'assets'));
+gulp.task('build', gulp.series('html', 'css', 'assets', 'js-plugins', 'js'));
 
 // For development
 gulp.task('default', gulp.series('build', 'watch', 'browserSync'));
