@@ -82,6 +82,7 @@ gulp.task('js', async function () {
 });
 
 gulp.task('watch', async function () {
+  gulp.watch('./src/js/app.js', gulp.series('js'));
   gulp.watch('./src/css/style.css', gulp.series('css'));
   gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
 });
