@@ -5,6 +5,7 @@ const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const purgecss = require('gulp-purgecss');
+const historyApiFallback = require('connect-history-api-fallback');
 
 /**
  * Custom PurgeCSS Extractor
@@ -89,7 +90,11 @@ gulp.task('watch', async function () {
 
 gulp.task('browserSync', function () {
   browserSync.init({
-    server: './dist'
+    watch: true,
+    server: {
+      baseDir: "dist",
+      middleware: [ historyApiFallback() ]
+    }
   })
 });
 
