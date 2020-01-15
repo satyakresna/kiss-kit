@@ -5,6 +5,7 @@ document.onreadystatechange = function () {
     page('/events', events);
     page('/users', users);
     page('/users/:username', users);
+    page('*', notfound);
     // Call it!
     page();
 
@@ -22,6 +23,10 @@ document.onreadystatechange = function () {
 
     function users(ctx) {
       document.querySelector('main').textContent = `User ${ctx.params.username || ''}`;
+    }
+
+    function notfound() {
+      document.querySelector('main').textContent = 'Not found';
     }
   }
 }
