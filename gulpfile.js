@@ -1,50 +1,14 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
-const tailwindcss = require('tailwindcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const purgecss = require('gulp-purgecss');
+const postcss = require('gulp-postcss');
 const historyApiFallback = require('connect-history-api-fallback');
 
-/**
- * Custom PurgeCSS Extractor
- * https://github.com/FullHuman/purgecss
- */
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-z0-9-:\/]+/g);
-  }
-}
-
 gulp.task('css', async function() {
-  const postcss = require('gulp-postcss');
-  const plugins = [
-    tailwindcss('./tailwind.config.js'),
-    autoprefixer,
-    cssnano({
-      preset: 'default'
-    }),
-  ]
-  gulp.src('src/css/style.css')
-    .pipe(postcss(plugins))
-    .pipe(purgecss({
-      // Specify the paths to all of the template files in your project
-      content: [
-        './src/**/*.html',
-        './src/*.html'
-      ],
-
-      // Include any special characters you're using in this regular expression
-      extractors: [
-        {
-          extractor: TailwindExtractor,
-          extensions: ["html"]
-        }
-      ]
-    }))
-    .pipe(rename('css/style.min.css'))
-    .pipe(gulp.dest('./dist/'))
+  gulp.src('./src/css/style.css')
+    .pipe(postcss())
+    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest('./dist/css/'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -84,7 +48,6 @@ gulp.task('js', async function () {
 
 gulp.task('watch', async function () {
   gulp.watch('./src/js/app.js', gulp.series('js'));
-  gulp.watch('./src/css/style.css', gulp.series('css'));
   gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
 });
 
@@ -92,10 +55,12 @@ gulp.task('browserSync', function () {
   browserSync.init({
     watch: true,
     server: {
-      baseDir: "dist",
+      baseDir: "./dist/",
       middleware: [ historyApiFallback() ]
     }
-  })
+  });
+
+  gulp.watch('./src/css/style.css', gulp.series('css')).on('change', browserSync.reload);
 });
 
 // For production
