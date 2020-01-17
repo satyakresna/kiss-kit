@@ -2,7 +2,6 @@ document.onreadystatechange = function () {
   if (document.readyState === 'complete') {
     page('/', index);
     page('/about', about);
-    page('/events', events);
     page('/users', users);
     page('/users/:username', users);
     page('*', notfound);
@@ -16,10 +15,6 @@ document.onreadystatechange = function () {
     function about() {
       closeMenu();
       document.querySelector('main').textContent = 'About';
-    }
-
-    function events() {
-      document.querySelector('main').textContent = 'Events';
     }
 
     function users(ctx) {
