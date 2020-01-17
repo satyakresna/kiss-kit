@@ -14,6 +14,7 @@ document.onreadystatechange = function () {
     }
 
     function about() {
+      closeMenu();
       document.querySelector('main').textContent = 'About';
     }
 
@@ -22,11 +23,19 @@ document.onreadystatechange = function () {
     }
 
     function users(ctx) {
+      closeMenu();
       document.querySelector('main').textContent = `User ${ctx.params.username || ''}`;
     }
 
     function notfound() {
       document.querySelector('main').textContent = 'Not found';
+    }
+
+    function closeMenu() {
+      const $menuToggle = document.getElementById('menuToggle');
+      if ($menuToggle.checked === true) {
+        $menuToggle.checked = false;
+      }
     }
   }
 }
