@@ -28,7 +28,7 @@ document.onreadystatechange = function () {
 
     function closeMenu() {
       const $menuToggle = document.getElementById('menuToggle');
-      if ($menuToggle.checked === true) {
+      if ($menuToggle.checked) {
         $menuToggle.checked = false;
       }
     }
