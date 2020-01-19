@@ -103,7 +103,7 @@ body {
 }
 
 @media (max-width: 699px) {
-    .menuUnderlay {
+    .menu-underlay {
         display: block;
         background: #959696;
         opacity: 0;
@@ -117,7 +117,7 @@ body {
         transition: opacity .3s cubic-bezier(0,0,.31,1);
     }
 
-    #menuToggle:checked ~ .menuUnderlay {
+    #menuToggle:checked ~ .menu-underlay {
         opacity: .7;
         pointer-events: auto;
     }
