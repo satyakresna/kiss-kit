@@ -92,7 +92,7 @@ body {
     display: none;
 }
 
-.sidebarIconToggle {
+.sidebar-icon-toggle {
     transition: all 0.3s;
     box-sizing: border-box;
     cursor: pointer;
@@ -124,7 +124,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    .sidebarIconToggle, #menuToggle {
+    .sidebar-icon-toggle, #menuToggle {
         display: none;
     }
 
