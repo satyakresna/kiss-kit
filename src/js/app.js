@@ -29,8 +29,21 @@ document.onreadystatechange = function () {
     function closeMenu() {
       const $menuToggle = document.getElementById('menuToggle');
       if ($menuToggle.checked) {
-        $menuToggle.checked = false;
+        $menuToggle.checked = false; 
+        setTransition();
       }
+    }
+
+    document.getElementById('menuToggle').addEventListener('click', function () {
+      setTransition();
+    });
+
+    function setTransition() {
+      const $sidebarMenu = document.getElementById('sidebarMenu');
+      $sidebarMenu.style.transition = "transform 250ms ease-in-out";
+      setTimeout(function () {
+        $sidebarMenu.style.transitionProperty = "none";
+      }, 300);
     }
   }
 }
