@@ -14,32 +14,30 @@
 <body class="bg-gray-300">
   <div class="flex flex-col min-h-screen">
     <header class="p-4 flex shadow bg-white">
-      <div class="flex">
-        <label for="menuToggle" class="sidebarIconToggle" aria-label="Toggle Menu" role="button">
-          <img src="../assets/icons/list.svg" alt="" class="h-6 w-6">
+      <label for="menuToggle" class="sidebarIconToggle" aria-label="Toggle Menu" role="button">
+        <img src="../assets/icons/list.svg" alt="" class="h-6 w-6">
+      </label>
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle" aria-label="Hide Menu" role="presentation" class="menu-underlay"></label>
+      <a href="/" class="ml-12 md:ml-0">
+        <img src="../assets/icons/refresh.svg" alt="Refresh logo" width="50" height="50">
+      </a>
+      <nav id="sidebarMenu">
+        <label for="menuToggle" class="sidebarIconToggle" aria-label="">
+          <img src="../assets/icons/times.svg" alt="" class="h-6 w-6">
         </label>
         <input type="checkbox" id="menuToggle">
-        <label for="menuToggle" aria-label="Hide Menu" role="presentation" class="menu-underlay"></label>
-        <a href="/" class="ml-12 md:ml-0">
-          <img src="../assets/icons/refresh.svg" alt="Refresh logo" width="50" height="50">
-        </a>
-        <nav id="sidebarMenu">
-          <label for="menuToggle" class="sidebarIconToggle" aria-label="">
-            <img src="../assets/icons/times.svg" alt="" class="h-6 w-6">
-          </label>
-          <input type="checkbox" id="menuToggle">
-          <ul class="md:flex md:items-center">
-            <li class="block lg:inline-block md:text-black font-bold m-0 md:mx-4 {{ isActive('about') }}">
-              <a href="/about">
-                TENTANG
-              </a>
-            </li>
-            <li class="block lg:inline-block md:text-black font-bold m-0 md:mx-4 {{ isActive('users') }}">
-              <a href="/users">PENGGUNA</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <ul class="md:flex md:items-center">
+          <li class="block lg:inline-block md:text-black font-bold m-0 md:mx-4 {{ isActive('about') }}">
+            <a href="/about">
+              TENTANG
+            </a>
+          </li>
+          <li class="block lg:inline-block md:text-black font-bold m-0 md:mx-4 {{ isActive('users') }}">
+            <a href="/users">PENGGUNA</a>
+          </li>
+        </ul>
+      </nav>
       <div class="backdrop"></div>
       <div class="ml-auto">
         <a href="/login" class="block lg:inline-block text-black font-bold mt-4">LOGIN</a>
