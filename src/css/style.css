@@ -101,7 +101,7 @@ body {
     left: 1rem;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 767px) {
     .menu-underlay {
         display: block;
         background: #959696;
