@@ -5,5 +5,6 @@ Keep It Simple Stupid Kit with purpose to make web layout or Single Page Applica
 ## Stack
 
 - HTML, CSS, JS
-- Gulp
-- Tailwind
+- [Gulp](https://gulpjs.com/)
+- [Tailwind](https://tailwindcss.com/)
+- [Page.js](https://github.com/visionmedia/page.js)
