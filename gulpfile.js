@@ -30,26 +30,28 @@ gulp.task('assets', async function () {
     }))
 });
 
-gulp.task('js-plugins', async function () {
-  gulp.src('./src/js/plugins/**')
-    .pipe(gulp.dest('./dist/js/plugins/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
-});
-
 gulp.task('js', async function () {
-  gulp.src('./src/js/app.js')
+  gulp.src('./src/js/**')
     .pipe(gulp.dest('./dist/js/'))
     .pipe(browserSync.reload({
       stream: true
     }));
 });
 
+gulp.task('data', async function () {
+  gulp.src('./src/data/**')
+    .pipe(gulp.dest('./dist/data/'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+})
+
 gulp.task('watch', async function () {
   gulp.watch('./src/assets/**', gulp.series('assets'));
-  gulp.watch('./src/js/app.js', gulp.series('js'));
+  gulp.watch('./src/js/**', gulp.series('js'));
+  gulp.watch('./src/data/**', gulp.series('data'));
   gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
+  gulp.watch('./src/css/style.css', gulp.series('css')).on('change', browserSync.reload);
 });
 
 gulp.task('browserSync', function () {
@@ -60,12 +62,10 @@ gulp.task('browserSync', function () {
       middleware: [ historyApiFallback() ]
     }
   });
-
-  gulp.watch('./src/css/style.css', gulp.series('css')).on('change', browserSync.reload);
 });
 
 // For production
-gulp.task('build', gulp.series('html', 'css', 'assets', 'js-plugins', 'js'));
+gulp.task('build', gulp.series('html', 'css', 'assets', 'js', 'data'));
 
 // For development
 gulp.task('default', gulp.series('build', 'watch', 'browserSync'));
