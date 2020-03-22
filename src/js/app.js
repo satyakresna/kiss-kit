@@ -1,3 +1,5 @@
+import page from "./plugins/page.mjs";
+
 document.onreadystatechange = function () {
   if (document.readyState === 'complete') {
     page('/', index);
