@@ -30,26 +30,25 @@ document.onreadystatechange = function () {
     }
 
     function closeMenu() {
-      window.requestAnimationFrame(() => {
+      if (window.matchMedia("(max-width: 767px)").matches) {
         document.getElementById('sidebarMenu').style.transform = "translateX(-250px)";
         document.getElementById('sidebarMenu').style.transition = "transform 250ms ease-in-out";
         document.querySelector('div.menu-underlay').style.display = "none";
-        setTimeout(() => {
-          document.getElementById('sidebarMenu').style.transitionProperty = "none";
-        }, 300);
-      });
+        document.querySelector('div.menu-underlay').style.pointerEvents = "none";
+        document.getElementById('sidebarMenu').addEventListener('transitionend', function (e) {
+          e.target.style.transitionProperty = "none";
+        }); 
+      }
     }
 
     document.querySelector('button.header__hamburger-btn').addEventListener('click', function () {
-      window.requestAnimationFrame(() => {
-        document.getElementById('sidebarMenu').style.transform = "translateX(0)";
-        document.getElementById('sidebarMenu').style.transition = "transform 250ms ease-in-out";
-        document.querySelector('div.menu-underlay').style.display = "block";
-        document.querySelector('div.menu-underlay').style.pointerEvents = "auto";
-        setTimeout(() => {
-          document.getElementById('sidebarMenu').style.transitionProperty = "none";
-        }, 300);
-      })
+      document.getElementById('sidebarMenu').style.transform = "translateX(0)";
+      document.getElementById('sidebarMenu').style.transition = "transform 250ms ease-in-out";
+      document.querySelector('div.menu-underlay').style.display = "block";
+      document.querySelector('div.menu-underlay').style.pointerEvents = "auto";
+      document.getElementById('sidebarMenu').addEventListener('transitionend', function (e) {
+        e.target.style.transitionProperty = "none";
+      });
     });
 
     document.querySelector('button.nav__hide-btn').addEventListener('click', function () {
