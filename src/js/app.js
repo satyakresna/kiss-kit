@@ -11,6 +11,7 @@ document.onreadystatechange = function () {
     page();
 
     function index() {
+      closeMenu();
       document.querySelector('main').textContent = 'Index';
     }
 
@@ -29,23 +30,34 @@ document.onreadystatechange = function () {
     }
 
     function closeMenu() {
-      const $menuToggle = document.getElementById('menuToggle');
-      if ($menuToggle.checked) {
-        $menuToggle.checked = false; 
-        setTransition();
-      }
+      window.requestAnimationFrame(() => {
+        document.getElementById('sidebarMenu').style.transform = "translateX(-250px)";
+        document.getElementById('sidebarMenu').style.transition = "transform 250ms ease-in-out";
+        document.querySelector('div.menu-underlay').style.display = "none";
+        setTimeout(() => {
+          document.getElementById('sidebarMenu').style.transitionProperty = "none";
+        }, 300);
+      });
     }
 
-    document.getElementById('menuToggle').addEventListener('click', function () {
-      setTransition();
+    document.querySelector('button.header__hamburger-btn').addEventListener('click', function () {
+      window.requestAnimationFrame(() => {
+        document.getElementById('sidebarMenu').style.transform = "translateX(0)";
+        document.getElementById('sidebarMenu').style.transition = "transform 250ms ease-in-out";
+        document.querySelector('div.menu-underlay').style.display = "block";
+        document.querySelector('div.menu-underlay').style.pointerEvents = "auto";
+        setTimeout(() => {
+          document.getElementById('sidebarMenu').style.transitionProperty = "none";
+        }, 300);
+      })
     });
 
-    function setTransition() {
-      const $sidebarMenu = document.getElementById('sidebarMenu');
-      $sidebarMenu.style.transition = "transform 250ms ease-in-out";
-      setTimeout(function () {
-        $sidebarMenu.style.transitionProperty = "none";
-      }, 300);
-    }
+    document.querySelector('button.nav__hide-btn').addEventListener('click', function () {
+      closeMenu();
+    });
+
+    document.querySelector('div.menu-underlay').addEventListener('click', function () {
+      closeMenu();
+    })
   }
 }
