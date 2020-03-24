@@ -20,26 +20,26 @@
       <a href="/" class="ml-4 md:ml-0">
         <img src="/assets/icons/refresh.svg" alt="Refresh logo" width="50" height="50">
       </a>
-      <nav id="sidebarMenu" class="flex flex-col">
+      <nav id="sidebarMenu">
         <div class="flex border-b border-solid border-gray-500 md:border-none p-6 -ml-2 -mt-1 md:hidden">
           <button class="nav__hide-btn p-2 ml-auto" aria-label="Close menu">
             <img src="/assets/icons/times.svg" alt="" class="h-6 w-6">
           </button>
           <!-- You can put your logo here ;) -->
         </div>
-        <ul>
-          <li class="md:text-black font-bold m-0 md:mx-4 md:inline">
-            <a href="/about">
+        <ul class="flex flex-col md:flex-row md:items-center">
+          <li>
+            <a href="/about" class="block md:inline font-bold md:mx-4 hover:bg-gray-200">
               TENTANG
             </a>
           </li>
-          <li class="md:text-black font-bold m-0 md:mx-4 md:inline">
-            <a href="/users">PENGGUNA</a>
+          <li>
+            <a href="/users" class="block md:inline font-bold md:mx-4 hover:bg-gray-200">PENGGUNA</a>
           </li>
         </ul>
       </nav>
       <div class="ml-auto">
-        <a href="/login" class="text-black font-bold">LOGIN</a>
+        <a href="/login" class="font-bold hover:bg-gray-200 p-4">LOGIN</a>
       </div>
     </header>
 

@@ -17,13 +17,13 @@ body {
     left: 0;
     top: 0;
     width: 250px;
-    z-index: 999;
+    z-index: 1;
     background: white;
     transform: translateX(-250px);
     will-change: transform;
 }
 
-#sidebarMenu li {
+#sidebarMenu li a {
     padding: 1rem;
     border-top: 0;
     border-bottom: 1px solid #ddd;
@@ -60,9 +60,10 @@ body {
         transition: none !important;
         background: none;
         width: auto;
+        z-index: auto;
     }
 
-    #sidebarMenu li {
+    #sidebarMenu li a {
         border: none;
     }
 }
