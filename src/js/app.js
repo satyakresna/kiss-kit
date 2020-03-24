@@ -13,23 +13,27 @@ document.onreadystatechange = function () {
     function index(ctx) {
       closeMenu();
       setActiveMenu(ctx.path);
+      setTitle(ctx);
       document.querySelector('main').textContent = 'Index';
     }
 
     function about(ctx) {
       closeMenu();
       setActiveMenu(ctx.path);
+      setTitle(ctx, 'About');
       document.querySelector('main').textContent = 'About';
     }
 
     function users(ctx) {
       closeMenu();
       setActiveMenu(ctx.path);
+      setTitle(ctx, 'Users');
       document.querySelector('main').textContent = `User ${ctx.params.username || ''}`;
     }
 
     function notfound(ctx) {
       setActiveMenu(ctx.path);
+      setTitle(ctx, 'Not found');
       document.querySelector('main').textContent = 'Not found';
     }
 
@@ -71,6 +75,14 @@ document.onreadystatechange = function () {
           el.classList.remove('active');
         }
       });
+    }
+
+    function setTitle(ctx, title = null) {
+      if (title !== null) {
+        document.title = ctx.title = `${title} - Kiss Kit`;
+      } else {
+        document.title = 'Kiss Kit';
+      }
     }
   }
 }
