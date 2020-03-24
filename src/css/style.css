@@ -30,8 +30,7 @@ body {
 }
 
 #sidebarMenu li a.active {
-    @apply border-b-2 border-solid border-blue-500;
-    @apply bg-gray-200;
+    border-bottom: 2px solid #4299e1;
 }
 
 @media (max-width: 767px) {
