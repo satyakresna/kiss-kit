@@ -29,6 +29,11 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+#sidebarMenu li a.active {
+    @apply border-b-2 border-solid border-blue-500;
+    @apply bg-gray-200;
+}
+
 @media (max-width: 767px) {
     .menu-underlay {
         display: none;

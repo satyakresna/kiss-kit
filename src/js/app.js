@@ -15,13 +15,15 @@ document.onreadystatechange = function () {
       document.querySelector('main').textContent = 'Index';
     }
 
-    function about() {
+    function about(ctx) {
       closeMenu();
+      setActiveMenu(ctx.path);
       document.querySelector('main').textContent = 'About';
     }
 
     function users(ctx) {
       closeMenu();
+      setActiveMenu(ctx.path);
       document.querySelector('main').textContent = `User ${ctx.params.username || ''}`;
     }
 
@@ -57,6 +59,16 @@ document.onreadystatechange = function () {
 
     document.querySelector('div.menu-underlay').addEventListener('click', function () {
       closeMenu();
-    })
+    });
+
+    function setActiveMenu(path) {
+      Array.from(document.querySelectorAll(`#sidebarMenu > ul > li > a`)).forEach(el => {
+        if (el.getAttribute('href') === path) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+    }
   }
 }
