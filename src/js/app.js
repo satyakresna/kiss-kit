@@ -10,8 +10,9 @@ document.onreadystatechange = function () {
     // Call it!
     page();
 
-    function index() {
+    function index(ctx) {
       closeMenu();
+      setActiveMenu(ctx.path);
       document.querySelector('main').textContent = 'Index';
     }
 
@@ -27,7 +28,8 @@ document.onreadystatechange = function () {
       document.querySelector('main').textContent = `User ${ctx.params.username || ''}`;
     }
 
-    function notfound() {
+    function notfound(ctx) {
+      setActiveMenu(ctx.path);
       document.querySelector('main').textContent = 'Not found';
     }
 
