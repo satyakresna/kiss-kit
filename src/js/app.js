@@ -46,6 +46,7 @@ document.onreadystatechange = function () {
         document.getElementById('sidebarMenu').addEventListener('transitionend', function (e) {
           e.target.style.transitionProperty = "none";
         }); 
+        document.body.style.overflow = "visible";
       }
     }
 
@@ -57,6 +58,7 @@ document.onreadystatechange = function () {
       document.getElementById('sidebarMenu').addEventListener('transitionend', function (e) {
         e.target.style.transitionProperty = "none";
       });
+      document.body.style.overflow = "hidden";
     });
 
     document.querySelector('button.nav__hide-btn').addEventListener('click', function () {
