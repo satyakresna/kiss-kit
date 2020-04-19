@@ -2,7 +2,7 @@
 
 Keep It Simple Stupid starter kit based on Single Page Application.
 
-## Tools to build this
+## Tools to build this kit
 
 - [Gulp](https://gulpjs.com/)
 - [Tailwind](https://tailwindcss.com/)
@@ -12,6 +12,7 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 
 1. Install [Degit](https://github.com/Rich-Harris/degit).
 2. Run `degit satyakresna/kiss-kit your-project-name`.
+3. Install dependencies with `npm install`.
 
 ## Features
 
