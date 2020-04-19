@@ -66,8 +66,9 @@ gulp.task('browserSync', function () {
 });
 
 gulp.task('inject:analytics', async function () {
-  const GA_TRACKER_ID = process.env.GA_TRACKER_ID !== undefined ? process.env.GA_TRACKER_ID : "UA-XXXXXXXXX-Y";
-  gulp.src('src/index.html')
+  const GA_TRACKER_ID = process.env.GA_TRACKER_ID;
+  if (GA_TRACKER_ID !== undefined) {
+    gulp.src('src/index.html')
     .pipe(inject.before('</head>',  `
     <link rel="preconnect" href="https://www.google-analytics.com">
     <!-- Google Analytics -->
@@ -82,7 +83,10 @@ gulp.task('inject:analytics', async function () {
     </script>
     `))
     .pipe(rename('index.html'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist')); 
+  } else {
+    console.log("GA_TRACKER_ID doesn't exist");
+  }
 });
 
 // For production
