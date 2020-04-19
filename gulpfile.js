@@ -64,7 +64,7 @@ gulp.task('browserSync', function () {
   });
 });
 
-gulp.task('readEnv', function () {
+gulp.task('readEnv', async function () {
   console.log(process.env.GOOBER_VALUE);
 });
 
