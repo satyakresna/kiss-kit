@@ -64,6 +64,10 @@ gulp.task('browserSync', function () {
   });
 });
 
+gulp.task('readEnv', function () {
+  console.log(process.env.GOOBER_VALUE);
+});
+
 // For production
 gulp.task('build', gulp.series('html', 'css', 'assets', 'js', 'data'));
 
