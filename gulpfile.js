@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
+const inject = require('gulp-inject-string');
 const historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('css', async function() {
@@ -65,7 +66,7 @@ gulp.task('browserSync', function () {
 });
 
 gulp.task('inject:analytics', async function () {
-  const GA_TRACKER_ID = process.env.GA_TRACKER_ID;
+  const GA_TRACKER_ID = process.env.GA_TRACKER_ID !== undefined ? process.env.GA_TRACKER_ID : "UA-XXXXXXXXX-Y";
   gulp.src('src/index.html')
     .pipe(inject.before('</head>',  `
     <link rel="preconnect" href="https://www.google-analytics.com">
@@ -76,7 +77,7 @@ gulp.task('inject:analytics', async function () {
       m=s.getElementsByTagName(o)[0];a.defer=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       
-      ga('create', ${GA_TRACKER_ID}, 'auto');
+      ga('create', '${GA_TRACKER_ID}', 'auto');
       ga('send', 'pageview');
     </script>
     `))
