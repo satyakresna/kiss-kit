@@ -82,7 +82,6 @@ gulp.task('inject:analytics', async function () {
     `))
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'));
-    done();
 });
 
 // For production
