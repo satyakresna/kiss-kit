@@ -36,7 +36,7 @@ gulp.task('js', async function () {
   })
   .then(bundle => {
     return bundle.write({
-      file: './dist/js/app.js',
+      dir: './dist/js',
       format: 'es',
       sourcemap: true,
       compact: true
