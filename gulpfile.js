@@ -4,6 +4,8 @@ const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const inject = require('gulp-inject-string');
 const historyApiFallback = require('connect-history-api-fallback');
+const rollup = require('rollup');
+const { terser } = require('rollup-plugin-terser');
 
 gulp.task('css', async function() {
   gulp.src('./src/css/style.css')
@@ -32,11 +34,20 @@ gulp.task('assets', async function () {
 });
 
 gulp.task('js', async function () {
-  gulp.src('./src/js/**')
-    .pipe(gulp.dest('./dist/js/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+  return rollup.rollup({
+    input: './src/js/app.js',
+    plugins: [
+      terser()
+    ]
+  })
+  .then(bundle => {
+    return bundle.write({
+      file: './dist/js/app.js',
+      format: 'es',
+      sourcemap: true,
+      compact: true
+    })
+  })
 });
 
 gulp.task('data', async function () {
@@ -49,10 +60,10 @@ gulp.task('data', async function () {
 
 gulp.task('watch', async function () {
   gulp.watch('./src/assets/**', gulp.series('assets'));
-  gulp.watch('./src/js/**', gulp.series('js'));
   gulp.watch('./src/data/**', gulp.series('data'));
   gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
   gulp.watch('./src/css/style.css', gulp.series('css')).on('change', browserSync.reload);
+  gulp.watch('./src/js/**', gulp.series('js')).on('change', browserSync.reload);
 });
 
 gulp.task('browserSync', function () {
