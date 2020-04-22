@@ -11,18 +11,12 @@ gulp.task('css', async function() {
   gulp.src('./src/css/style.css')
     .pipe(postcss())
     .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('./dist/css/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+    .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('html', async function () {
   gulp.src(['./src/**/.*html', './src/*.html'])
-    .pipe(gulp.dest('./dist/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('assets', async function () {
