@@ -7,6 +7,7 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 - [Gulp](https://gulpjs.com/)
 - [Tailwind](https://tailwindcss.com/)
 - [Page.js](https://github.com/visionmedia/page.js)
+- [Rollup](https://rollupjs.org/guide/en/) and [Rollup plugin terser](https://github.com/TrySound/rollup-plugin-terser)
 
 ## How to use this kit
 
@@ -19,6 +20,7 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 1. Navigation drawer menu.
 2. Track URL with Google Analytics in defer mode. :)
 3. Explicit redirects to fix Single Page Application issue in **netlify.toml**.
+4. Bundle ES module using Rollup and minify with Rollup plugin terser. ;)
 
 ## Note
 
