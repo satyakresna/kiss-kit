@@ -1,3 +1,4 @@
+import page from "./plugins/page.mjs";
 import Home from "./pages/home.js";
 import About from "./pages/about.js";
 import Users from "./pages/users.js";
@@ -7,15 +8,13 @@ import closeMenu from "./behaviours/closeMenu.js";
 
 document.onreadystatechange = function () {
   if (document.readyState === 'complete') {
-    import('./plugins/page.mjs').then(({ default: page }) => {
-      page('/', Home);
-      page('/about', About);
-      page('/users', Users);
-      page('/users/:username', Users);
-      page('*', NotFound);
-      // Call it!
-      page();
-    });
+    page('/', Home);
+    page('/about', About);
+    page('/users', Users);
+    page('/users/:username', Users);
+    page('*', NotFound);
+    // Call it!
+    page();
 
     document.querySelector('button.header__hamburger-btn').addEventListener('click', function () {
       openMenu();
