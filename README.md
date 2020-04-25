@@ -2,19 +2,6 @@
 
 Keep It Simple Stupid starter kit based on Single Page Application.
 
-## Tools to build this kit
-
-- [Gulp](https://gulpjs.com/)
-- [Tailwind](https://tailwindcss.com/)
-- [Page.js](https://github.com/visionmedia/page.js)
-- [Rollup](https://rollupjs.org/guide/en/) and [Rollup plugin terser](https://github.com/TrySound/rollup-plugin-terser)
-
-## How to use this kit
-
-1. Install [Degit](https://github.com/Rich-Harris/degit).
-2. Run `degit satyakresna/kiss-kit your-project-name`.
-3. Install dependencies with `npm install`.
-
 ## Features
 
 1. Navigation drawer menu.
@@ -22,6 +9,17 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 3. Explicit redirects to fix Single Page Application issue in **netlify.toml**.
 4. Bundle ES module using Rollup and minify with Rollup plugin terser. ;)
 
-## Note
+> **Note:** To set up track URL via Google Analytics, you should set variable with name `GA_TRACKER_ID` in your site Netlify dashboard. Go to **Settings > Build & deploy > Environment > Environment variables**. Check also `inject:analytics` gulp task in **gulpfile.js** to see what's going on.
 
-To set up track URL via Google Analytics, you should set variable with name `GA_TRACKER_ID` in your site Netlify dashboard. Go to **Settings > Build & deploy > Environment > Environment variables**. Check also `inject:analytics` gulp task in **gulpfile.js** to see what's going on.
+## How to use this kit
+
+1. Install [Degit](https://github.com/Rich-Harris/degit).
+2. Run `degit satyakresna/kiss-kit your-project-name`.
+3. Install dependencies with `npm install`.
+
+## Tools to build this kit
+
+- [Gulp](https://gulpjs.com/)
+- [Tailwind](https://tailwindcss.com/)
+- [Page.js](https://github.com/visionmedia/page.js)
+- [Rollup](https://rollupjs.org/guide/en/) and [Rollup plugin terser](https://github.com/TrySound/rollup-plugin-terser)
