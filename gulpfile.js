@@ -7,24 +7,16 @@ const historyApiFallback = require('connect-history-api-fallback');
 const rollup = require('rollup');
 const { terser } = require('rollup-plugin-terser');
 
-gulp.task('css', async function() {
-  gulp.src('./src/css/style.css')
-    .pipe(postcss())
-    .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('./dist/css/'));
-});
-
 gulp.task('html', async function () {
   gulp.src(['./src/**/.*html', './src/*.html'])
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('assets', async function () {
-  gulp.src('./src/assets/**')
-    .pipe(gulp.dest('./dist/assets/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
+gulp.task('css', async function() {
+  gulp.src('./src/css/style.css')
+    .pipe(postcss())
+    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('js', async function () {
@@ -44,11 +36,19 @@ gulp.task('js', async function () {
   })
 });
 
+gulp.task('assets', async function () {
+  gulp.src('./src/assets/**')
+    .pipe(gulp.dest('./dist/assets/'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
 gulp.task('watch', async function () {
-  gulp.watch('./src/assets/**', gulp.series('assets'));
   gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
   gulp.watch('./src/css/style.css', gulp.series('css')).on('change', browserSync.reload);
   gulp.watch('./src/js/**', gulp.series('js')).on('change', browserSync.reload);
+  gulp.watch('./src/assets/**', gulp.series('assets'));
 });
 
 gulp.task('browserSync', function () {
