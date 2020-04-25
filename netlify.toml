@@ -1,4 +1,5 @@
 [build]
+  publish = "dist/"
   command = "NODE_ENV=production gulp production"
 
 [[redirects]]
