@@ -44,17 +44,8 @@ gulp.task('js', async function () {
   })
 });
 
-gulp.task('data', async function () {
-  gulp.src('./src/data/**')
-    .pipe(gulp.dest('./dist/data/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
-})
-
 gulp.task('watch', async function () {
   gulp.watch('./src/assets/**', gulp.series('assets'));
-  gulp.watch('./src/data/**', gulp.series('data'));
   gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
   gulp.watch('./src/css/style.css', gulp.series('css')).on('change', browserSync.reload);
   gulp.watch('./src/js/**', gulp.series('js')).on('change', browserSync.reload);
