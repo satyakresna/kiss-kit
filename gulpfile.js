@@ -86,7 +86,7 @@ gulp.task('inject:analytics', async function () {
 });
 
 // For production
-gulp.task('build', gulp.series('html', 'css', 'assets', 'js', 'data'));
+gulp.task('build', gulp.series('html', 'css', 'assets', 'js'));
 
 // For development
 gulp.task('default', gulp.series('build', 'watch', 'browserSync'));
