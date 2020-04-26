@@ -1,4 +1,4 @@
-import page from "./plugins/page.mjs";
+import page from "page";
 import Home from "./pages/home.js";
 import About from "./pages/about.js";
 import Users from "./pages/users.js";
