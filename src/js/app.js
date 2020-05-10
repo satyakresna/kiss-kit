@@ -22,6 +22,6 @@ document.querySelector('button.nav__hide-btn').addEventListener('click', functio
   closeMenu();
 });
 
-document.querySelector('div.underlay').addEventListener('click', function () {
+document.querySelector('div.menu-underlay').addEventListener('click', function () {
   closeMenu();
 });
