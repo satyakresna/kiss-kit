@@ -20,6 +20,7 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 ## Tools to build this kit
 
 - [Gulp](https://gulpjs.com/)
+- [Browser Sync](https://www.browsersync.io/)
 - [Tailwind](https://tailwindcss.com/)
 - [Page.js](https://github.com/visionmedia/page.js)
 - [Rollup](https://rollupjs.org/guide/en/)
