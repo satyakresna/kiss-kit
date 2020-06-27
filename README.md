@@ -4,10 +4,9 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 
 ## Features
 
-1. Navigation drawer menu.
-2. Track URL with Google Analytics in defer mode. :)
-3. Explicit redirects to fix Single Page Application issue in **netlify.toml**.
-4. Bundle ES module using Rollup, locate and bundle third party dependencies in node_modules with Rollup plugin node-resolve and minify with Rollup plugin terser. ;)
+1. Track URL with Google Analytics in defer mode. :)
+2. Explicit redirects to fix Single Page Application issue in **netlify.toml**.
+3. Bundle ES module using Rollup, locate and bundle third party dependencies in node_modules with Rollup plugin node-resolve and minify with Rollup plugin terser. ;)
 
 > **Note:** To set up track URL via Google Analytics, you should set variable with name `GA_TRACKER_ID` in your site Netlify dashboard. Go to **Settings > Build & deploy > Environment > Environment variables**. Check also `inject:analytics` gulp task in **gulpfile.js** to see what's going on.
 
