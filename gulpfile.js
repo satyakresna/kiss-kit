@@ -9,7 +9,7 @@ const { terser } = require('rollup-plugin-terser');
 const resolve = require('@rollup/plugin-node-resolve');
 
 gulp.task('html', async function () {
-  gulp.src(['./src/**/.*html', './src/*.html'])
+  gulp.src(['./src/**/*.html', './src/*.html'])
     .pipe(gulp.dest('./dist/'));
 });
 
