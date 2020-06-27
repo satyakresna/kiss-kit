@@ -12,43 +12,26 @@
 </head>
 
 <body class="bg-gray-300">
-  <div class="menu-underlay"></div>
-  <div class="flex flex-col min-h-screen">
-    <header class="p-4 flex shadow bg-white items-center">
-      <button class="header__hamburger-btn p-2 md:hidden" aria-label="Open menu">
-        <img src="/assets/icons/list.svg" alt="" class="h-6 w-6">
-      </button>
-      <a href="/" class="ml-4 md:ml-0">
+  <div class="container">
+    <nav class="navigation">
+      <a href="/">
         <img src="/assets/icons/refresh.svg" alt="Refresh logo" width="50" height="50">
       </a>
-      <nav id="sidebarMenu">
-        <div class="flex border-b border-solid border-gray-500 md:border-none p-6 -ml-2 -mt-1 md:hidden">
-          <button class="nav__hide-btn p-2 ml-auto" aria-label="Close menu">
-            <img src="/assets/icons/times.svg" alt="" class="h-6 w-6">
-          </button>
-          <!-- You can put your logo here ;) -->
-        </div>
-        <ul class="flex flex-col md:flex-row md:items-center">
-          <li>
-            <a href="/about" class="block md:inline font-bold md:mx-4 hover:bg-gray-200">
-              TENTANG
-            </a>
-          </li>
-          <li>
-            <a href="/users" class="block md:inline font-bold md:mx-4 hover:bg-gray-200">PENGGUNA</a>
-          </li>
-        </ul>
-      </nav>
+      <ul class="navigation-list">
+        <li>
+          <a href="/users" class="block md:inline font-bold hover:bg-gray-200">USERS</a>
+        </li>
+      </ul>
       <div class="ml-auto">
         <a href="/login" class="font-bold hover:bg-gray-200 p-4">LOGIN</a>
       </div>
-    </header>
+    </nav>
 
-    <main class="flex flex-col flex-auto">
+    <main>
 
     </main>
 
-    <footer class="p-4 mt-4">
+    <footer>
       <p class="text-black font-bold text-center">&copy; Kiss Kit 2019</p>
     </footer>  
   </div>
