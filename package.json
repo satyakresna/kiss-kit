@@ -4,12 +4,11 @@
   "description": "Keep It Simple Stupid Kit",
   "main": "index.js",
   "scripts": {
-    "cp:assets": "mkdir -p dist/assets && cp -R src/assets dist",
-    "cp:html": "find src -name '*.html' -type f -exec cp {} dist \\;",
-    "copy": "npm run cp:assets && npm run cp:html",
-    "build:js": "rollup -c",
-    "build:css": "postcss src/css/style.css -d dist/css",
-    "build": "npm run copy && npm run build:js && npm run build:css",
+    "assets": "mkdir -p dist/assets && cp -R src/assets dist",
+    "html": "find src -name '*.html' -type f -exec cp {} dist \\;",
+    "js": "rollup -c",
+    "css": "postcss src/css/style.css -d dist/css",
+    "build": "npm run html && npm run assets && npm run js && npm run css",
     "dev": "rm -rf dist && npm run build && light-server -c .lightserverrc",
     "production": "NODE_ENV=production npm run build && gulp inject:analytics"
   },
