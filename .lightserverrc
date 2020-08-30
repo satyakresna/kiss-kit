@@ -1,0 +1,13 @@
+{
+    "serve": "dist",
+    "serveRedirect": false,
+    "port": 8000,
+    "bind": "localhost",
+    "watchexps": [
+        "src/*.html, src/assets/**/* # npm run copy # reload",
+        "src/js/*.js # npm run build:js # reload",
+        "src/css/style.css # npm run build:css # reloadcss"
+    ],
+    "noReload": false,
+    "historyindex": "/index.html"
+}

@@ -1,70 +1,6 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
-const browserSync = require('browser-sync').create();
-const postcss = require('gulp-postcss');
 const inject = require('gulp-inject-string');
-const historyApiFallback = require('connect-history-api-fallback');
-const rollup = require('rollup');
-const { terser } = require('rollup-plugin-terser');
-const resolve = require('@rollup/plugin-node-resolve');
-
-gulp.task('html', async function () {
-  gulp.src(['./src/**/*.html', './src/*.html'])
-    .pipe(gulp.dest('./dist/'));
-});
-
-gulp.task('css', async function() {
-  gulp.src('./src/css/style.css')
-    .pipe(postcss())
-    .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('./dist/css/'));
-});
-
-gulp.task('js', async function () {
-  return rollup.rollup({
-    input: './src/js/app.js',
-    plugins: [
-      resolve(),
-      terser()
-    ]
-  })
-  .then(bundle => {
-    return bundle.write({
-      dir: './dist/js',
-      format: 'es',
-      globals: {
-        page: 'page'
-      },
-      sourcemap: true,
-      compact: true
-    })
-  })
-});
-
-gulp.task('assets', async function () {
-  gulp.src('./src/assets/**')
-    .pipe(gulp.dest('./dist/assets/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
-
-gulp.task('watch', async function () {
-  gulp.watch(['./src/**/*.html'], gulp.series('html', 'css')).on('change', browserSync.reload);
-  gulp.watch('./src/css/style.css', gulp.series('css')).on('change', browserSync.reload);
-  gulp.watch('./src/js/**', gulp.series('js')).on('change', browserSync.reload);
-  gulp.watch('./src/assets/**', gulp.series('assets'));
-});
-
-gulp.task('browserSync', function () {
-  browserSync.init({
-    watch: true,
-    server: {
-      baseDir: "./dist/",
-      middleware: [ historyApiFallback() ]
-    }
-  });
-});
 
 gulp.task('inject:analytics', async function () {
   const GA_TRACKER_ID = process.env.GA_TRACKER_ID;
@@ -89,12 +25,3 @@ gulp.task('inject:analytics', async function () {
     console.log("GA_TRACKER_ID doesn't exist");
   }
 });
-
-// Build
-gulp.task('build', gulp.series('html', 'css', 'assets', 'js'));
-
-// Development
-gulp.task('default', gulp.series('build', 'watch', 'browserSync'));
-
-// Production
-gulp.task('production', gulp.series('build', 'inject:analytics'));
