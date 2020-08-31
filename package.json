@@ -10,7 +10,8 @@
     "css": "postcss src/css/style.css -d dist/css",
     "build": "npm run html && npm run assets && npm run js && npm run css",
     "dev": "rm -rf dist && npm run build && light-server -c .lightserverrc",
-    "production": "NODE_ENV=production npm run build && gulp inject:analytics"
+    "inject:analytics": "npm run analytics.js",
+    "production": "NODE_ENV=production npm run build && npm run inject:analytics"
   },
   "repository": {
     "type": "git",
