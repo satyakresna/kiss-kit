@@ -33,13 +33,6 @@ readStream.on('data', function (chunk) {
         result += chunk;
     }
 }).on('end', function () {
-    fs.mkdir("./dist", function(err) {
-        if (err) {
-            console.log("Directory already exist");
-        } else {
-            console.log("New directory successfully created.")
-        }
-    });
     const writeStream = fs.createWriteStream(path.join(__dirname, 'dist', 'index.html'));
     writeStream.write(result);
 })
