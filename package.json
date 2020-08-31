@@ -10,7 +10,7 @@
     "css": "postcss src/css/style.css -d dist/css",
     "build": "npm run html && npm run assets && npm run js && npm run css",
     "dev": "rm -rf dist && npm run build && light-server -c .lightserverrc",
-    "inject:analytics": "npm run analytics.js",
+    "inject:analytics": "node analytics.js",
     "production": "NODE_ENV=production npm run build && npm run inject:analytics"
   },
   "repository": {
@@ -26,6 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "gulp": "^4.0.2",
     "gulp-inject-string": "^1.1.2",
     "gulp-rename": "^2.0.0",
