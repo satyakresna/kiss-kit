@@ -33,6 +33,7 @@ readStream.on('data', function (chunk) {
         result += chunk;
     }
 }).on('end', function () {
+    console.log(result);
     const writeStream = fs.createWriteStream(path.join(__dirname, 'dist', 'index.html'));
     writeStream.write(result);
 })
