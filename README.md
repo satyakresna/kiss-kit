@@ -17,6 +17,10 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 3. Install dependencies with `npm install`.
 4. Run with `npm run dev`.
 
+## Notes
+
+Component is a user interface and how user interface should act. Page is build by one or more components. Then, you should put **components** inside page folder. Example, you make a users page then you make a folder with name **users** inside **js** directory. Then, create **index.js** inside **users** folder. After that, create **components** folder inside **users** folder.
+
 ## Tools to build this kit
 
 - [Light-server](https://github.com/txchen/light-server)
