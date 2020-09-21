@@ -1,5 +1,5 @@
-import setActiveMenu from "../behaviours/setActiveMenu.js";
-import setTitle from "../behaviours/setTitle.js";
+import setActiveMenu from "./utils/setActiveMenu.js";
+import setTitle from "./utils/setTitle.js";
 
 export default function (ctx) {
   setActiveMenu(ctx.path);

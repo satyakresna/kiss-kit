@@ -1,7 +1,7 @@
 import page from "page";
-import Home from "./pages/home.js";
-import Users from "./pages/users.js";
-import NotFound from "./pages/notfound.js";
+import Home from "./home/index.js";
+import Users from "./users/index.js";
+import NotFound from "./notfound.js";
 
 page('/', Home);
 page('/users', Users);
