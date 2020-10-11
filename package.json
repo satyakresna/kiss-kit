@@ -6,12 +6,11 @@
   "scripts": {
     "assets": "mkdir -p dist/assets && cp -R src/assets dist",
     "html": "find src -name '*.html' -type f -exec cp {} dist \\;",
-    "js": "rollup -c",
-    "css": "postcss src/css/style.css -d dist/css",
+    "js": "mkdir -p dist/js && cp -R src/js dist",
+    "css": "postcss src/**/*.css --base src --dir dist",
     "build": "npm run assets && npm run html && npm run js && npm run css",
     "dev": "rm -rf dist && npm run build && light-server -c .lightserverrc",
-    "inject:analytics": "node analytics.js",
-    "production": "NODE_ENV=production npm run build && npm run inject:analytics"
+    "production": "NODE_ENV=production npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,15 +24,11 @@
   "author": "Satya Kresna <satyakresna6295@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "postcss-cli": "^7.1.1",
-    "rollup": "^2.7.1",
-    "rollup-plugin-terser": "^7.0.1"
+    "postcss-cli": "^7.1.1"
   },
   "dependencies": {
     "cssnano": "^4.1.10",
     "light-server": "^2.8.0",
-    "page": "^1.11.6",
     "tailwindcss": "^1.7.6"
   }
 }
