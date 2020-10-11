@@ -10,10 +10,10 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 
 > **Note:** To set up track URL via Google Analytics, you should set variable with name `GA_TRACKER_ID` in your site Netlify dashboard. Go to **Settings > Build & deploy > Environment > Environment variables**. Check also `inject:analytics` in [**analytics.js**](/analytics.js) to see what's going on.
 
-## How to use this kit
+## How to use this kit for Lite Version
 
 1. Install [Degit](https://github.com/Rich-Harris/degit).
-2. Run `degit satyakresna/kiss-kit your-project-name`.
+2. Run `degit satyakresna/kiss-kit#lite your-project-name`.
 3. Install dependencies with `npm install`.
 4. Run with `npm run dev`.
 
