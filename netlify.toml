@@ -1,9 +1,3 @@
 [build]
   publish = "dist/"
-  command = "NODE_ENV=production npm run build && npm run inject:analytics"
-
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
-force = false
+  command = "NODE_ENV=production npm run build"
