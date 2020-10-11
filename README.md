@@ -12,6 +12,8 @@ Keep It Simple Stupid starter kit based on Single Page Application.
 
 ## How to use this kit
 
+> **Note:** This starter kit has lite version. Lite version is a version without Rollup and Single Page Application. If you want to use this version then run `degit satyakresna/kiss-kit#lite your-project-name`.
+
 1. Install [Degit](https://github.com/Rich-Harris/degit).
 2. Run `degit satyakresna/kiss-kit your-project-name`.
 3. Install dependencies with `npm install`.
